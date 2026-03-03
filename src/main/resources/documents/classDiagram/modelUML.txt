@@ -1,0 +1,76 @@
+@startuml
+
+package com.universityMVP.api.model {
+
+    enum Role {
+        STUDENT
+        TEACHER
+        ADMIN
+    }
+
+    class User {
+        - Long id
+        - String name
+        - String email
+        - String password
+        - Role role
+    }
+
+    class Course {
+        - Long id
+        - String name
+    }
+
+    class Discipline {
+        - Long id
+        - String name
+        - Course course
+    }
+
+    class Semester {
+        - Long id
+    }
+
+    class Class {
+        - Long id
+        - Discipline discipline
+        - Professor professor
+        - Semester semester
+    }
+
+    class Activities {
+        - Long id
+        - Class class
+        - String description
+        - Date activity_due_date
+        - float max_value
+    }
+
+    class Register {
+        - Long id
+        - Class classEntity
+        - Course course
+        - float grade1
+        - float grade2
+        - int faults
+        - float average
+        - String status
+    }
+
+    ' Relacionamentos baseados nas anotações JPA
+    User "n" -- "1" Role
+    Discipline "n" --> "1" Course : id_course
+    Class "n" --> "1" Discipline : id_discipline
+    Class "n" --> "1" Semester : id_semester
+    
+    ' Nota: O código de Class referencia Professor, 
+    ' que funcionalmente deve ser um User
+    Class "n" --> "1" User : id_professor
+
+    Activities "n" --> "1" Class : id_class
+    Register "n" --> "1" Class : id_class
+    Register "n" --> "1" Course : id_course
+
+}
+
+@enduml
