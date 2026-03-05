@@ -2,9 +2,9 @@ package com.universityMVP.api.repository;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.universityMVP.api.model.Discipline;
+import com.universityMVP.api.model.Course;
 
 @Repository
-public interface Course extends JpaRepository<Discipline, Long> 
+public interface CourseRepository extends JpaRepository<Course, Long> 
 {
 }

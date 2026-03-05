@@ -1,9 +1,16 @@
 package com.universityMVP.api.controller;
 
-import com.universityMVP.api.model.User;
-import com.universityMVP.api.repository.UserRepository;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import com.universityMVP.api.repository.UserRepository;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import com.universityMVP.api.model.User;
+
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -13,6 +20,7 @@ import java.util.List;
 public class UserController
 {
     // Instancie repository automatically
+    // Dont need to use the "UserRepostory" in each method (post, get, etc)
     @Autowired
     private UserRepository userRepository;
 

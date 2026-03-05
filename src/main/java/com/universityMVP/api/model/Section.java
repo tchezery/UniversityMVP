@@ -11,12 +11,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 
 import com.universityMVP.api.model.Discipline;
-import com.universityMVP.api.model.Professor;
+import com.universityMVP.api.model.User;
 import com.universityMVP.api.model.Semester;
 
 @Entity
-@Table(name = "class")
-public class Class
+@Table(name = "section")
+public class Section
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +28,7 @@ public class Class
 
     @ManyToOne
     @JoinColumn(name = "id_professor")
-    private Professor professor;
+    private User professor;
 
     @ManyToOne
     @JoinColumn(name = "id_semester")
@@ -39,8 +39,8 @@ public class Class
     public void setId(Long id) { this.id = id; }
     public Discipline getDiscipline() { return discipline; }
     public void setDiscipline(Discipline discipline) { this.discipline = discipline; }
-    public Professor getProfessor() { return professor; }
-    public void setProfessor(Professor professor) { this.professor = professor; }
+    public User getProfessor() { return professor; }
+    public void setProfessor(User professor) { this.professor = professor; }
     public Semester getSemester() { return semester; }
     public void setSemester(Semester semester) { this.semester = semester; }
 }

@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+
 import jakarta.persistence.Column;
 
 import com.universityMVP.api.model.Role;

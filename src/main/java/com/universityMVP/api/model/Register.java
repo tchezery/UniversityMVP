@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 
 import com.universityMVP.api.model.User;
-import com.universityMVP.api.model.Class;
+import com.universityMVP.api.model.Section;
 import com.universityMVP.api.model.Course;
 
 @Entity
@@ -22,13 +22,13 @@ public class Register
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
+    @ManyToOne
     @JoinColumn(name = "id_user")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "id_class")
-    private Class class;
+    @JoinColumn(name = "id_section")
+    private Section section;
 
     @ManyToOne
     @JoinColumn(name = "id_course")
@@ -47,8 +47,8 @@ public class Register
     public void setId(Long id) { this.id = id; }
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
-    public Class getClass() { return class; }
-    public void setClass(Class class) { this.class = class; }
+    public Section getSection() { return section; }
+    public void setSection(Section section) { this.section = section; }
     public Course getCourse() { return course; }
     public void setCourse(Course course) { this.course = course; }
     public float getGrade1() { return grade1; }

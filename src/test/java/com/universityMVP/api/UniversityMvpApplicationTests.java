@@ -1,4 +1,4 @@
-package com.universityMVP.UniversityMVP;
+package com.universityMVP.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
