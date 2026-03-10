@@ -16,7 +16,7 @@ import java.util.List;
 
 //Endpoint and Connection Methods
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController
 {
     // Instancie repository automatically
