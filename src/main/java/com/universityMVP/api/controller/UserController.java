@@ -38,9 +38,23 @@ public class UserController
         }
     */
     @PostMapping
-    public User createUser(@RequestBody User user)
+    public ResponseEntity<?> createUser(@RequestBody User user)
     {
-        return userRepository.createGenericUser(user);
+        if (user.getName() == null || user.getEmail() == null || user.getBirthDate() == null || user.getPassword() == null || user.getRole() == null) 
+        {
+            return ResponseEntity.badRequest().body("All fields are required");
+        }
+
+        try 
+        {
+            User createdUser = userRepository.createGenericUser(user);
+            return ResponseEntity.ok(createdUser);
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("An error occurred while creating the user");
+        }
     }
 
     //example: http://localhost:8080/peoples/name?value=John
