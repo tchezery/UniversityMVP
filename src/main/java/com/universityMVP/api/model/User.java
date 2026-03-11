@@ -22,7 +22,7 @@ import com.universityMVP.api.model.Role;
 @Entity
 // Table database reference
 // If not exist Hibernate create automatically
-@Table(name = "users")
+@Table(name = "user")
 public class User 
 {
     //Define the next attribute as the Primary Key
