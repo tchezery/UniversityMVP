@@ -8,7 +8,7 @@ import com.universityMVP.api.repository.ClassRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.universityMVP.api.model.Section;
+import com.universityMVP.api.model.CourseClass;
 
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -22,13 +22,13 @@ public class ClassController
     private ClassRepository classRepository;
 
     @PostMapping
-    public Section saveClass(@RequestBody Section section)
+    public CourseClass saveClass(@RequestBody CourseClass courseClass)
     {
-        return classRepository.save(section);
+        return classRepository.save(courseClass);
     }
 
     @GetMapping
-    public List<Section> listClasses()
+    public List<CourseClass> listClasses()
     {
         return classRepository.findAll();
     }

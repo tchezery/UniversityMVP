@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
 
-import com.universityMVP.api.model.Section;
+import com.universityMVP.api.model.CourseClass;
 
 import java.util.Date;
 
@@ -23,8 +23,8 @@ public class Activities
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_section")
-    private Section section;
+    @JoinColumn(name = "id_course_class")
+    private CourseClass courseClass;
 
     private String description;
     private Date activity_due_date;

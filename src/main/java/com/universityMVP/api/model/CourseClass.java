@@ -15,8 +15,8 @@ import com.universityMVP.api.model.User;
 import com.universityMVP.api.model.Semester;
 
 @Entity
-@Table(name = "section")
-public class Section
+@Table(name = "course_class")
+public class CourseClass
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
