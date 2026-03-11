@@ -71,9 +71,9 @@ public class UserController
         return userRepository.findUsersByAge(age);
     }
 
-    //example: http://localhost:8080/peoples/page?page=0&size=10
+    //example: http://localhost:8080/peoples/page?number=0&size=10
     @GetMapping("/page")
-    public ResponseEntity<?> getAllUsers(@RequestParam("page") int page, @RequestParam("size") int size)
+    public ResponseEntity<?> getAllUsers(@RequestParam("number") int page, @RequestParam("size") int size)
     {
         if (size > 10 || size < 1) 
         {

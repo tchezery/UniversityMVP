@@ -94,7 +94,9 @@ public class UserRepository
     public List<User> findUsersByAge(int age)
     {
         List<User> users = new ArrayList<>();
-        String query = "SELECT * FROM user WHERE (YEAR(CURDATE()) - YEAR(birth_date)) = ?";
+        String query = "SELECT * FROM user " +
+                                "WHERE (strftime('%Y', 'now') - strftime('%Y', birth_date/ 1000, 'unixepoch')) - " +
+                                "(strftime('%m-%d', 'now') < strftime('%m-%d', birth_date/ 1000, 'unixepoch')) = ?";
 
         try (Connection conn = dataSource.getConnection(); 
             PreparedStatement pstmt = conn.prepareStatement(query))
