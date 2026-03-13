@@ -1,25 +1,23 @@
 package com.universityMVP.api.controller;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import com.universityMVP.api.repository.ClassRepository;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.universityMVP.api.model.CourseClass;
-
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
+import com.universityMVP.api.repository.CourseClassRepository;
 
 @RestController
 @RequestMapping("/class")
-public class ClassController
+public class CourseClassController
 {
     @Autowired
-    private ClassRepository classRepository;
+    private CourseClassRepository classRepository;
 
     @PostMapping
     public CourseClass saveClass(@RequestBody CourseClass courseClass)

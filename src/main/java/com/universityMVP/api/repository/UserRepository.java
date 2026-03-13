@@ -1,19 +1,18 @@
 package com.universityMVP.api.repository;
 
-import org.springframework.stereotype.Repository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import javax.sql.DataSource;
-
-import java.util.List;
-import com.universityMVP.api.model.User;
-import java.util.ArrayList;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.universityMVP.api.model.Role;
+import com.universityMVP.api.model.User;
 
 
 @Repository
@@ -35,7 +34,7 @@ public class UserRepository
             pstmt.setString(4, user.getPassword());
             pstmt.setString(5, user.getRole().name());
 
-            int affectedRows = pstmt.executeUpdate();
+            int affectedRows = pstmt.executeUpdate(); 
 
             if (affectedRows > 0) 
             {
