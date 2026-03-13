@@ -1,9 +1,13 @@
 package com.universityMVP.api.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.universityMVP.api.model.Course;
@@ -17,7 +21,14 @@ public class CourseController {
     private CourseRepository courseRepository;
 
     @PostMapping
-    public Course saveCourse(@RequestBody Course course) {
+    public Course createCourse(@RequestBody Course course) 
+    {
         return courseRepository.createCourse(course);
+    }
+
+    @GetMapping("/name")
+    public List<Course> getCourseByName(@RequestParam("value") String name)
+    {
+        return courseRepository.findCourseByName(name);
     }
 }
